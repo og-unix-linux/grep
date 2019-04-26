@@ -1,0 +1,17 @@
+#print whole line
+ifconfig | grep -E '^eth[0-9$]'             
+	eth0      Link encap:Ethernet  HWaddr 00:A2:EE:E9:45:40  
+	eth1      Link encap:Ethernet  HWaddr 00:A2:EE:E9:45:41  
+	eth2      Link encap:Ethernet  HWaddr 00:6B:F1:FA:2F:41  
+	eth3      Link encap:Ethernet  HWaddr 00:6B:F1:FA:2F:42
+	
+#just print occurance, use the -o option
+ifconfig | grep -o '^eth[0-9$]'
+	eth0
+	eth1
+	eth2
+	eth3
+	
+ifconfig | grep -o '^eth[0-9$]' | grep -o '[0-9]' | head -1
+	0
+	
